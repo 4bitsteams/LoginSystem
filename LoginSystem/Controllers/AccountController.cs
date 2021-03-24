@@ -19,6 +19,13 @@ namespace LoginSystem.Controllers
             this.userManager = userManager;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction("Login", "Account");
+        }
+
         [HttpGet]
         public IActionResult Login()
         {
