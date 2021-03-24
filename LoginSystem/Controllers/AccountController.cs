@@ -17,5 +17,15 @@ namespace LoginSystem.Controllers
             this.signInManager = signInManager;
             this.userManager = userManager;
         }
+
+        public IActionResult Success()
+        {
+            return View();
+        }
+
+        public IActionResult Error()
+        {
+            return View();
+        }
     }
 }
