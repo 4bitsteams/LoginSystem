@@ -43,10 +43,10 @@ namespace LoginSystem.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Success", "Account");
+                    return RedirectToAction("LoginSuccess", "Account");
                 }
 
-                return RedirectToAction("Error", "Account");
+                return RedirectToAction("LoginError", "Account");
             }
 
             return View(model);
@@ -76,22 +76,33 @@ namespace LoginSystem.Controllers
                 {
                     await signInManager.SignInAsync(user, isPersistent: false);
 
-                    return RedirectToAction("Success", "Account");
+                    return RedirectToAction("RegisterSuccess", "Account");
                 }
 
-                return RedirectToAction("Error", "Account");
+                return RedirectToAction("RegisterError", "Account");
 
             }
             return View(model);
         }
 
         [Authorize]
-        public IActionResult Success()
+        public IActionResult LoginSuccess()
         {
             return View();
         }
 
-        public IActionResult Error()
+        public IActionResult LoginError()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public IActionResult RegisterSuccess()
+        {
+            return View();
+        }
+
+        public IActionResult RegisterError()
         {
             return View();
         }
