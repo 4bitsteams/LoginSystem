@@ -20,6 +20,32 @@ namespace LoginSystem.Controllers
         }
 
         [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await signInManager.PasswordSignInAsync(
+                    model.Email, model.Password, model.RememberMe, false);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Success", "Account");
+                }
+
+                return RedirectToAction("Error", "Account");
+            }
+
+            return View(model);
+        }
+
+
+        [HttpGet]
         public IActionResult Register()
         {
             return View();
