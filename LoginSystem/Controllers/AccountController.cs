@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using LoginSystem.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LoginSystem.Controllers
 {
@@ -84,6 +85,7 @@ namespace LoginSystem.Controllers
             return View(model);
         }
 
+        [Authorize]
         public IActionResult Success()
         {
             return View();
