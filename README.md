@@ -14,6 +14,7 @@
  - c#
  - ASP.NET Core 3.1
  - VS 2019
+ - SqlServer
  
  ### Packages
    - Microsoft.AspNetCore.Diagnostics.EntityFramworkCore v3.1.13
